@@ -1,11 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ScrollView
 
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <TableRow
+        android:id="@+id/CategoriesTable1"
+        android:layout_width="match_parent"
+        android:layout_height="266dp">
+
+        <TextView
+            android:id="@+id/History"
+            android:layout_width="317dp"
+            android:layout_height="120dp"
+            android:text="Historia"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
+            android:textSize="30dp"
+            android:background="#42A5f5"
+            />
+        <TextView
+            android:id="@+id/Geografy"
+            android:layout_width="317dp"
+            android:layout_height="120dp"
+            android:text="Geografia"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
+            android:textSize="30dp"
+            android:background="#D4e157"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/CategoriesTable2"
+        android:layout_width="match_parent"
+        android:layout_height="266dp">
+
+        <TextView
+            android:id="@+id/Sports"
+            android:layout_width="317dp"
+            android:layout_height="120dp"
+            android:text="Deportes"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
+            android:textSize="30dp"
+            android:background="#FFD600"
+            />
+        <TextView
+            android:id="@+id/Art"
+            android:layout_width="317dp"
+            android:layout_height="120dp"
+            android:text="Arte"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
+            android:textSize="30dp"
+            android:background="#F44336"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/CategoriesTable3"
+        android:layout_width="match_parent"
+        android:layout_height="266dp">
+
+        <TextView
+            android:id="@+id/Chemistry"
+            android:layout_width="317dp"
+            android:layout_height="120dp"
+            android:text="Quimica"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
+            android:textSize="30dp"
+            android:background="#4CAF50"
+            />
+        <TextView
+            android:id="@+id/entertainment"
+            android:layout_width="317dp"
+            android:layout_height="120dp"
+            android:text="Entretenimiento"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
+            android:textSize="30dp"
+            android:background="#FF4081"
+            />
+
+    </TableRow>
+<TableRow
+        android:id="@+id/CategoriesTable4"
+        android:layout_width="match_parent"
+        android:layout_height="266dp">
+
+        <TextView
+            android:id="@+id/Politics"
+            android:layout_width="317dp"
+            android:layout_height="120dp"
+            android:text="Politica"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
+            android:textSize="30dp"
+            android:background="#607D8B"
+            />
+        <TextView
+            android:id="@+id/Riddles"
+            android:layout_width="317dp"
+            android:layout_height="120dp"
+            android:text="Adivinanzas"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
+            android:textSize="30dp"
+            android:background="#673AB7"
+            />
+
+        </TableRow>
+
+    </TableLayout>
+
+    </ScrollView>
+
+</LinearLayout>
