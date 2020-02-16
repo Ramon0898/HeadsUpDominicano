@@ -7,9 +7,6 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class SplashScreens extends AppCompatActivity {
 
     ProgressBar pb;

@@ -1,76 +1,73 @@
 package com.example.ramon.headsupdominicano;
 
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
-/* AQUI TRATABA DE HACER EL TEMPORIZADOR DE LOS 5 SEG DESPUES DE SELECCIONAR LA CATEGORIA, AUN NO ME FUNCIONA
-public class Questions extends AppCompatActivity {
 
-    TextView Counter;
-    Intent in;
+import java.util.List;
 
-    private CountDownTimer countDownTimer;
-    private long seconds = 5000;
-    private boolean TimeRunning;
+public class Questions extends AppCompatActivity  {
+
+
+
+    TextView contador;//variable para darle valor de el xml id
+    CountDownTimer ConteoAtras; // con esto llamo al metodo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
 
-        Counter = findViewById(R.id.Counter);
 
-        starStop();
-        updateTimer();
-    }
+        contador = findViewById(R.id.Counter);//lA Variable con el id de el xml
 
-    public void starStop(){
-        if(TimeRunning){
-            stopTimer();
-        }else {
-            starTimer();
-        }
-    }
 
-    public void starTimer(){
-        countDownTimer = new CountDownTimer(seconds, 5000) {
+
+
+            ConteoAtras = new CountDownTimer(6000,1000)// Los parametros dice los segundos y cuanto se le va a restar
+        {
+
+
+
             @Override
-            public void onTick(long millisUntilFinished) {
-                seconds = 5;
-                updateTimer();
-                if (seconds == 5){
-                    in= new Intent(Questions.this, MainActivity.class);
-                    startActivity(in);
-                }
+            public void onTick(long l)//este metodo se va a correr cuando empieze el conteo
+            {
+
+                contador.setText(l / 1000+ "");
             }
 
             @Override
-            public void onFinish() {
-
+            public void onFinish()//este se va a correr cuando se acabe el conteo
+            {
+                contador.setText("Go!!");
             }
-        }.start();
-        TimeRunning = true;
-    }
 
-    public void stopTimer(){
-        countDownTimer.cancel();
-        TimeRunning = false;
-    }
 
-    public void updateTimer(){
-        int minutes = (int)seconds / 5000;
-        int second = (int)seconds % 5000 / 100;
+        }.start();//con esto empieza el coteo al entrar al activity
 
-        String timeLeftText;
 
-        timeLeftText = "" + minutes;
-        timeLeftText += ":";
-        if (second <5 )timeLeftText += "0";
-        timeLeftText += second;
 
 
     }
+
+
 }
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
