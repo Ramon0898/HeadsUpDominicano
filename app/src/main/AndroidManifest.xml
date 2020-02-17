@@ -9,6 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Arte"></activity>
+        <activity android:name=".Entretenimiento" />
+        <activity android:name=".Politica" />
+        <activity android:name=".Quimica" />
+        <activity android:name=".Geografia" />
+        <activity android:name=".Historia" />
+        <activity android:name=".Deportes" />
         <activity
             android:name=".SplashScreens"
             android:screenOrientation="landscape">
@@ -21,8 +28,9 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".Questions"
-            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".Questions"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
