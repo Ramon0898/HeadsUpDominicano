@@ -46,6 +46,7 @@ public class Questions extends AppCompatActivity  {
             public void onFinish()//este se va a correr cuando se acabe el conteo
             {
                 contador.setText("Go!!");
+
             }
 
 

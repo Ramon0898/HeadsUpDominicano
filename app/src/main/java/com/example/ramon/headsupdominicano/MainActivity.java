@@ -26,7 +26,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         deportes.setOnClickListener(this);
 
 
+
     }
+
+
 
 
     @Override
@@ -34,14 +37,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId())
         {
             case R.id.Sports:
-                i = new Intent(MainActivity.this, Questions.class);
+                i = new Intent(MainActivity.this, Deportes.class);
                 startActivity(i);
                 break;
-            case R.id.Art:
-                i = new Intent(MainActivity.this, Questions.class);
-                startActivity(i);
-                break;/*Tenia pensado hacer lo mismo que hice con
-                      Sport para llamar el activity pero no se puede crear 2 Intent de la misma clase*/
+
 
 
         }
