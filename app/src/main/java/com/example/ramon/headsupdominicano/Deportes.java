@@ -32,7 +32,7 @@ public class Deportes extends AppCompatActivity {
     private void getPalabras()
     {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com")
+                .baseUrl("http://localhost:3004/")//Esta es la url de la Api
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

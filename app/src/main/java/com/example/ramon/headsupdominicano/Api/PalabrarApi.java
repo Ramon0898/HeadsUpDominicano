@@ -7,7 +7,7 @@ import com.example.ramon.headsupdominicano.Modelo.palabras;
 
 public interface PalabrarApi {
 
-    @GET("posts")
+    @GET("deportes")//aqui le pones la ruta para que te muestre el json que quieres ver, ej: si http://localhost:3004/deportes
     Call<List<palabras>>getPosts();
 
 
