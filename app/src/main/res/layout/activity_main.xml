@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9accd1"
+    android:background="#2f00ff"
     tools:context=".MainActivity">
 
 
@@ -51,6 +51,7 @@
                 android:background="#D4e157"
                 android:paddingTop="30dp"
                 android:text="Geografia"
+                android:drawableRight="@mipmap/geografia_foreground"
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textSize="30dp" />
@@ -84,6 +85,7 @@
             android:background="#F44336"
             android:paddingTop="30dp"
             android:text="Arte"
+            android:drawableRight="@mipmap/arte_foreground"
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="30dp" />
@@ -105,6 +107,7 @@
                 android:background="#4CAF50"
                 android:paddingTop="30dp"
                 android:text="Quimica"
+                android:drawableRight="@mipmap/quimica_foreground"
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textSize="30dp" />
@@ -115,7 +118,8 @@
                 android:layout_height="90dp"
                 android:background="#FF4081"
                 android:paddingTop="30dp"
-                android:text="Entretenimiento"
+                android:text="Diversion"
+                android:drawableRight="@mipmap/entretenimiento_foreground"
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textSize="30dp" />

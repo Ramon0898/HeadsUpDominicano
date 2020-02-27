@@ -25,12 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         deportes= findViewById(R.id.Sports);
         deportes.setOnClickListener(this);
 
-
-
     }
-
-
-
 
     @Override
     public void onClick(View v) {//Asi es mas facil para no crear tantos metodos Onclik, solo creamos el swith y llamamos el id
@@ -40,8 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 i = new Intent(MainActivity.this, Deportes.class);
                 startActivity(i);
                 break;
-
-
 
         }
     }
