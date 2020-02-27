@@ -49,6 +49,7 @@ public class SplashScreens extends AppCompatActivity {
                         if (counter == 99) {
                             i = new Intent(SplashScreens.this, MainActivity.class);
                             startActivity(i);
+                            finish();
                         }
                         counter++;
                         isActivo = true;
@@ -57,6 +58,7 @@ public class SplashScreens extends AppCompatActivity {
 
             });
             hilo.start();
+
         }
 
     }

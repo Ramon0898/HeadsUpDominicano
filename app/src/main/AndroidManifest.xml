@@ -3,6 +3,7 @@
     package="com.example.ramon.headsupdominicano">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
 
 
 
@@ -14,13 +15,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Arte"></activity>
-        <activity android:name=".Entretenimiento" />
-        <activity android:name=".Politica" />
-        <activity android:name=".Quimica" />
-        <activity android:name=".Geografia" />
-        <activity android:name=".Historia" />
-        <activity android:name=".Deportes" />
+        <activity android:name=".Arte"
+            android:screenOrientation="landscape"></activity>
+        <activity android:name=".Entretenimiento"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Politica"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Quimica"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Geografia"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Historia"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Deportes"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".SplashScreens"
             android:screenOrientation="landscape">

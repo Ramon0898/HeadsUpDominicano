@@ -4,129 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#9accd1"
     tools:context=".MainActivity">
 
-    <ScrollView
 
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TableRow
-        android:id="@+id/CategoriesTable1"
-        android:layout_width="match_parent"
-        android:layout_height="266dp">
 
         <TextView
-            android:id="@+id/History"
-            android:layout_width="317dp"
-            android:layout_height="120dp"
-            android:text="Historia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:paddingTop="30dp"
-            android:textSize="30dp"
-            android:background="#42A5f5"
-            />
-        <TextView
-            android:id="@+id/Geografy"
-            android:layout_width="317dp"
-            android:layout_height="120dp"
-            android:text="Geografia"
-            android:textAlignment="center"
-            android:paddingTop="30dp"
-            android:textSize="30dp"
-            android:background="#D4e157"
+            android:text="CATEGORIAS"
+            android:textSize="45dp"
+            android:textColor="#FFEB3B"
+            android:textStyle="bold"
             />
 
-    </TableRow>
+
+        <TableRow
+            android:id="@+id/CategoriesTable1"
+            android:layout_width="100dp"
+            android:layout_height="56dp">
+
+            <TextView
+                android:id="@+id/History"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="15dp"
+                android:background="#42A5f5"
+                android:drawableRight="@mipmap/history_foreground"
+                android:paddingTop="30dp"
+                android:text="Historia"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="30dp"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/Geografy"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:background="#D4e157"
+                android:paddingTop="30dp"
+                android:text="Geografia"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="30dp" />
+
+        </TableRow>
 
     <TableRow
         android:id="@+id/CategoriesTable2"
         android:layout_width="match_parent"
-        android:layout_height="266dp">
+        android:layout_height="200dp">
 
         <TextView
             android:id="@+id/Sports"
-            android:layout_width="317dp"
-            android:layout_height="120dp"
-            android:text="Deportes"
-            android:textAlignment="center"
-            android:paddingTop="30dp"
-            android:textSize="30dp"
+            android:layout_width="250dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="15dp"
             android:background="#FFD600"
-            />
+            android:layout_marginLeft="40dp"
+            android:drawableRight="@mipmap/deporte_foreground"
+            android:paddingTop="30dp"
+            android:text="Deportes"
+            android:textColor="#fff"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:layout_marginBottom="5dp"/>
+
         <TextView
             android:id="@+id/Art"
-            android:layout_width="317dp"
-            android:layout_height="120dp"
+            android:layout_width="250dp"
+            android:layout_height="90dp"
+            android:background="#F44336"
+            android:paddingTop="30dp"
             android:text="Arte"
             android:textAlignment="center"
-            android:paddingTop="30dp"
-            android:textSize="30dp"
-            android:background="#F44336"
-            />
+            android:textColor="#fff"
+            android:textSize="30dp" />
 
     </TableRow>
 
-    <TableRow
-        android:id="@+id/CategoriesTable3"
-        android:layout_width="match_parent"
-        android:layout_height="266dp">
+        <TableRow
+            android:id="@+id/CategoriesTable3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/Chemistry"
-            android:layout_width="317dp"
-            android:layout_height="120dp"
-            android:text="Quimica"
-            android:textAlignment="center"
-            android:paddingTop="30dp"
-            android:textSize="30dp"
-            android:background="#4CAF50"
-            />
-        <TextView
-            android:id="@+id/entertainment"
-            android:layout_width="317dp"
-            android:layout_height="120dp"
-            android:text="Entretenimiento"
-            android:textAlignment="center"
-            android:paddingTop="30dp"
-            android:textSize="30dp"
-            android:background="#FF4081"
-            />
+            <TextView
+                android:id="@+id/Chemistry"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="25dp"
+                android:background="#4CAF50"
+                android:paddingTop="30dp"
+                android:text="Quimica"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="30dp" />
 
-    </TableRow>
-<TableRow
-        android:id="@+id/CategoriesTable4"
-        android:layout_width="match_parent"
-        android:layout_height="266dp">
-
-        <TextView
-            android:id="@+id/Politics"
-            android:layout_width="317dp"
-            android:layout_height="120dp"
-            android:text="Politica"
-            android:textAlignment="center"
-            android:paddingTop="30dp"
-            android:textSize="30dp"
-            android:background="#607D8B"
-            />
-        <TextView
-            android:id="@+id/Riddles"
-            android:layout_width="317dp"
-            android:layout_height="120dp"
-            android:text="Adivinanzas"
-            android:textAlignment="center"
-            android:paddingTop="30dp"
-            android:textSize="30dp"
-            android:background="#673AB7"
-            />
+            <TextView
+                android:id="@+id/entertainment"
+                android:layout_width="250dp"
+                android:layout_height="90dp"
+                android:background="#FF4081"
+                android:paddingTop="30dp"
+                android:text="Entretenimiento"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="30dp" />
 
         </TableRow>
 
+
     </TableLayout>
 
-    </ScrollView>
+
 
 </LinearLayout>
