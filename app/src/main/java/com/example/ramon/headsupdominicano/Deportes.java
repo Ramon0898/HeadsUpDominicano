@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -22,10 +23,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Deportes extends AppCompatActivity {
 
+    int NumeroRespuesta=0;
     SensorManager sensorManager;
     Sensor sensor;
     SensorEventListener sensorEventListener;
     TextView correcto, incorrecto;
+    CountDownTimer ConteoAtras;
+    CountDownTimer ConteoAtras2;
+    TextView conteo;
+    TextView segundos;
+
     private TextView tex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +41,98 @@ public class Deportes extends AppCompatActivity {
 
         correcto = findViewById(R.id.correcto);
         incorrecto = findViewById(R.id.incorrecto);
+        tex= findViewById(R.id.texto);
+
+        conteo = findViewById(R.id.Time);
+        segundos= findViewById(R.id.Segundos);
+
+        tex.setEnabled(true);
+        tex.setTextColor(Color.TRANSPARENT);
+
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
+
+
+
+
+        ConteoAtras = new CountDownTimer(61000,1000)// Los parametros dice los segundos y cuanto se le va a restar
+        {
+
+
+
+            @Override
+            public void onTick(long l)//este metodo se va a correr cuando empieze el conteo
+            {
+
+                conteo.setText(l / 1000+ ":00");
+
+            }
+
+            @Override
+            public void onFinish()//este se va a correr cuando se acabe el conteo
+            {
+                conteo.setText("Game Over");
+                if(conteo.getText() == "Game Over")
+                {
+                    tex.setEnabled(true);
+                    tex.setTextColor(Color.TRANSPARENT);
+                }
+
+
+            }
+
+
+        };//con esto empieza el coteo al entrar al activity
+
+        ConteoAtras2 = new CountDownTimer(6000,1000)// Los parametros dice los segundos y cuanto se le va a restar
+        {
+
+
+
+            @Override
+            public void onTick(long l)//este metodo se va a correr cuando empieze el conteo
+            {
+
+                segundos.setText(l / 1000+ "");
+
+            }
+
+            @Override
+            public void onFinish()//este se va a correr cuando se acabe el conteo
+            {
+                segundos.setText("Let´s Go");
+
+                if(segundos.getText() == "Let´s Go")
+                {
+
+                    segundos.setEnabled(true);
+                    segundos.setTextColor(Color.TRANSPARENT);
+
+                    tex.setEnabled(false);
+                    tex.setTextColor(Color.BLACK);
+
+                    ConteoAtras.start();
+
+
+                }
+
+            }
+
+
+        }.start();//con esto empieza el coteo al entrar al activity
+
+
+
+
+
+
         Pass();
     }
+
+
+
 
     public void Pass(){ //METODO PARA PASS AND BYPASS //LO LLAMAS DONDE IMPLEMENTEMOS LAS CONDICIONES DE LAS PALABRAS
         sensorEventListener = new SensorEventListener() {
@@ -62,12 +155,19 @@ public class Deportes extends AppCompatActivity {
                     orientations[i] = (float) (Math.toDegrees(orientations[i]));
                 }
 
-                if(orientations[1] > 30 ) {
-                    getWindow().getDecorView().setBackgroundColor(Color.WHITE);
-                } else if(orientations[1] < -30) {
-                    getWindow().getDecorView().setBackgroundColor(Color.BLUE);
-                } else if(orientations[2] < 10) {
+                if(orientations[1] >50 ) {
                     getWindow().getDecorView().setBackgroundColor(Color.RED);
+                    if(orientations[1] ==55)
+                    {
+                        ActualizarPreguntas();
+                    }
+                } else if(orientations[1] < -30) {
+                    ActualizarPreguntas();
+                    getWindow().getDecorView().setBackgroundColor(Color.GREEN);
+
+                } else if(orientations[2] < 10) {
+                    getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+
                 }
 
             }
@@ -76,52 +176,45 @@ public class Deportes extends AppCompatActivity {
             }
         };
 
-        // Register it
+
+
+
         sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
 
 
-        getPalabras();
+
     }
 
-    private void getPalabras()
+
+    public String PreguntasDeporte[]=
+            {
+                    "Big Daddy",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines"
+
+            };
+
+    public String obtenerPreguntas(int a)
     {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:3000")//Esta es la url de la Api
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        String Preguntas = PreguntasDeporte[a];
+        return Preguntas;
 
-        PalabrarApi palabrarApi = retrofit.create(PalabrarApi.class);
-
-        Call<List<palabras>> call = palabrarApi.getPosts();
-
-        call.enqueue(new Callback<List<palabras>>() {
-            @Override
-            public void onResponse(Call<List<palabras>> call, Response<List<palabras>> response) {
-                if(!response.isSuccessful())
-                {
-                    tex.setText("codigo" + response.code());
-                    return;
-                }
-
-                List<palabras> postList = response.body();
-
-                for (palabras palabras: postList)
-                {
-                    String content="";
-                    content += "id" + palabras.getId() + "\n" ;
-                    content += "palabra" + palabras.getPalabra();
-
-                    tex.append(content);
-
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<palabras>> call, Throwable t) {
-
-                //tex.setText(t.getMessage());
-            }
-        });
     }
+
+    public void ActualizarPreguntas()
+    {
+        NumeroRespuesta++;
+        tex.setText(obtenerPreguntas((NumeroRespuesta)));
+
+
+
+    }
+
 }

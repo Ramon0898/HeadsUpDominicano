@@ -8,14 +8,15 @@ import android.hardware.SensorManager;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.List;
 
-public class Questions extends AppCompatActivity  {
+public class Questions extends AppCompatActivity implements View.OnClickListener {
 
 
-
+    TextView deportes;
     TextView contador;//variable para darle valor de el xml id
     CountDownTimer ConteoAtras; // con esto llamo al metodo
 
@@ -26,6 +27,9 @@ public class Questions extends AppCompatActivity  {
 
 
         contador = findViewById(R.id.Counter);//lA Variable con el id de el xml
+
+        deportes= findViewById(R.id.Sports);
+        deportes.setOnClickListener(this);
 
 
 
@@ -58,6 +62,10 @@ public class Questions extends AppCompatActivity  {
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }
 
 
