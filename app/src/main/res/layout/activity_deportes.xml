@@ -37,25 +37,30 @@
         app:layout_constraintStart_toStartOf="@+id/correcto"
         app:layout_constraintTop_toTopOf="@+id/correcto" />
 
-    <TextView
-        android:id="@+id/Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="48dp"
-        android:text="59"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
+    <!--<TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="208dp"
+        android:layout_height="53dp"
         android:layout_marginStart="132dp"
-        android:layout_marginTop="24dp"
-        android:text="Time :"
+        android:layout_marginTop="40dp"
+        android:text="TE QUEDAN:"
+        android:textSize="35sp"
+        android:textColor="#000"
         app:layout_constraintEnd_toStartOf="@+id/Time"
         app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <TextView
+        android:id="@+id/Time"
+        android:layout_width="187dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="52dp"
+        android:text="60"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,6 +70,7 @@
         android:layout_height="wrap_content"
         android:text="5"
         android:textSize="36sp"
+        android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="@+id/incorrecto"
         app:layout_constraintEnd_toEndOf="@+id/correcto"
         app:layout_constraintStart_toStartOf="@+id/correcto"
