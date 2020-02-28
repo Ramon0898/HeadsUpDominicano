@@ -6,4 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".Entretenimiento">
 
+    <TextView
+        android:id="@+id/correcto"
+        android:layout_width="326dp"
+        android:layout_height="125dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textoEntre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/correcto"
+        app:layout_constraintEnd_toEndOf="@+id/correcto"
+        app:layout_constraintStart_toStartOf="@+id/correcto"
+        app:layout_constraintTop_toTopOf="@+id/correcto" />
+
+    <TextView
+        android:id="@+id/TimeEntre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="59"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2Entre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Time :"
+        app:layout_constraintEnd_toStartOf="@+id/TimeEntre"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/SegundosEntre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/correcto"
+        app:layout_constraintEnd_toEndOf="@+id/correcto"
+        app:layout_constraintStart_toStartOf="@+id/correcto"
+        app:layout_constraintTop_toTopOf="@+id/correcto" />
+
+
 </android.support.constraint.ConstraintLayout>

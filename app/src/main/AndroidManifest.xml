@@ -19,8 +19,6 @@
             android:screenOrientation="landscape"></activity>
         <activity android:name=".Entretenimiento"
             android:screenOrientation="landscape"/>
-        <activity android:name=".Politica"
-            android:screenOrientation="landscape"/>
         <activity android:name=".Quimica"
             android:screenOrientation="landscape"/>
         <activity android:name=".Geografia"

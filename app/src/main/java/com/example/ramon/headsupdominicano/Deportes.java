@@ -1,5 +1,8 @@
 package com.example.ramon.headsupdominicano;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -8,7 +11,9 @@ import android.hardware.SensorManager;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ramon.headsupdominicano.Api.PalabrarApi;
 import com.example.ramon.headsupdominicano.Modelo.palabras;
@@ -24,10 +29,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Deportes extends AppCompatActivity {
 
     int NumeroRespuesta=0;
+    int Puntaje=0;
     SensorManager sensorManager;
     Sensor sensor;
+    TextView l;
     SensorEventListener sensorEventListener;
-    TextView correcto, incorrecto;
     CountDownTimer ConteoAtras;
     CountDownTimer ConteoAtras2;
     TextView conteo;
@@ -39,8 +45,6 @@ public class Deportes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deportes);
 
-        correcto = findViewById(R.id.correcto);
-        incorrecto = findViewById(R.id.incorrecto);
         tex= findViewById(R.id.texto);
 
         conteo = findViewById(R.id.Time);
@@ -49,25 +53,20 @@ public class Deportes extends AppCompatActivity {
         tex.setEnabled(true);
         tex.setTextColor(Color.TRANSPARENT);
 
-
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
 
+        ActualizarPreguntas();
 
 
 
         ConteoAtras = new CountDownTimer(61000,1000)// Los parametros dice los segundos y cuanto se le va a restar
         {
-
-
-
             @Override
             public void onTick(long l)//este metodo se va a correr cuando empieze el conteo
             {
-
                 conteo.setText(l / 1000+ ":00");
-
             }
 
             @Override
@@ -78,61 +77,34 @@ public class Deportes extends AppCompatActivity {
                 {
                     tex.setEnabled(true);
                     tex.setTextColor(Color.TRANSPARENT);
+                    ShowAlertDialog();
                 }
-
-
             }
-
-
         };//con esto empieza el coteo al entrar al activity
 
         ConteoAtras2 = new CountDownTimer(6000,1000)// Los parametros dice los segundos y cuanto se le va a restar
         {
-
-
-
             @Override
             public void onTick(long l)//este metodo se va a correr cuando empieze el conteo
             {
-
                 segundos.setText(l / 1000+ "");
-
             }
-
             @Override
             public void onFinish()//este se va a correr cuando se acabe el conteo
             {
                 segundos.setText("Let´s Go");
-
                 if(segundos.getText() == "Let´s Go")
                 {
-
                     segundos.setEnabled(true);
                     segundos.setTextColor(Color.TRANSPARENT);
-
                     tex.setEnabled(false);
                     tex.setTextColor(Color.BLACK);
-
                     ConteoAtras.start();
-
-
                 }
-
             }
-
-
         }.start();//con esto empieza el coteo al entrar al activity
-
-
-
-
-
-
         Pass();
     }
-
-
-
 
     public void Pass(){ //METODO PARA PASS AND BYPASS //LO LLAMAS DONDE IMPLEMENTEMOS LAS CONDICIONES DE LAS PALABRAS
         sensorEventListener = new SensorEventListener() {
@@ -152,39 +124,38 @@ public class Deportes extends AppCompatActivity {
                 SensorManager.getOrientation(remappedRotationMatrix, orientations);
 
                 for (int i = 0; i < 3; i++) {
-                    orientations[i] = (float) (Math.toDegrees(orientations[i]));
-                }
+                    orientations[i] = (float) (Math.toDegrees(orientations[i])); }
 
-                if(orientations[1] >50 ) {
+                if(orientations[1] >50 )
+                {
                     getWindow().getDecorView().setBackgroundColor(Color.RED);
-                    if(orientations[1] ==55)
+                    float d = orientations[1];
+                    int i = (int) d;
+                    String dd = String.valueOf(i);
+                    l.setText(dd);
+                    if(i>=50 && i<=70 )
                     {
                         ActualizarPreguntas();
                     }
-                } else if(orientations[1] < -30) {
-                    ActualizarPreguntas();
+                } else if(orientations[1] < -30){
                     getWindow().getDecorView().setBackgroundColor(Color.GREEN);
-
+                    float d = orientations[1];
+                    int i = (int) d;
+                    String dd = String.valueOf(i);
+                    l.setText(dd);
+                    if(i<= -30)
+                    {
+                        ActualizarPreguntas();
+                    }
                 } else if(orientations[2] < 10) {
-                    getWindow().getDecorView().setBackgroundColor(Color.WHITE);
-
-                }
-
+                    getWindow().getDecorView().setBackgroundColor(Color.WHITE); }
             }
             @Override
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-
-
-
-
         sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
-
-
-
     }
-
 
     public String PreguntasDeporte[]=
             {
@@ -205,16 +176,33 @@ public class Deportes extends AppCompatActivity {
     {
         String Preguntas = PreguntasDeporte[a];
         return Preguntas;
-
     }
 
     public void ActualizarPreguntas()
     {
-        NumeroRespuesta++;
         tex.setText(obtenerPreguntas((NumeroRespuesta)));
-
-
-
+        NumeroRespuesta++;
     }
 
+    public void ShowAlertDialog()
+    {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Quieres Jugar la categoria de Deportes Otra vez? ");
+        alert.setMessage("Puntos Obtenidos: " + Puntaje);
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(Deportes.this, Deportes.class);
+                startActivity(i);
+            }
+        });
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(Deportes.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+        alert.create().show();
+    }
 }

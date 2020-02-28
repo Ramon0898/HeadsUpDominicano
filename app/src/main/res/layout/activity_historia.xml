@@ -6,4 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".Historia">
 
+
+    <TextView
+        android:id="@+id/incorrecto"
+        android:layout_width="330dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textoHis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/incorrecto"
+        app:layout_constraintEnd_toEndOf="@+id/incorrecto"
+        app:layout_constraintStart_toStartOf="@+id/incorrecto"
+        app:layout_constraintTop_toTopOf="@+id/incorrecto" />
+
+    <TextView
+        android:id="@+id/TimeHis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="59"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2His"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Time :"
+        app:layout_constraintEnd_toStartOf="@+id/TimeHis"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/SegundosHis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/incorrecto"
+        app:layout_constraintEnd_toEndOf="@+id/textoHis"
+        app:layout_constraintStart_toStartOf="@+id/textoHis"
+        app:layout_constraintTop_toTopOf="@+id/incorrecto" />
+
 </android.support.constraint.ConstraintLayout>
