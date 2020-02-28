@@ -6,4 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".Arte">
 
+    <TextView
+        android:id="@+id/incorrecto"
+        android:layout_width="330dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <TextView
+        android:id="@+id/textoArt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/incorrecto"
+        app:layout_constraintEnd_toEndOf="@+id/incorrecto"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/incorrecto"
+        app:layout_constraintTop_toTopOf="@+id/incorrecto"
+        app:layout_constraintVertical_bias="0.507" />
+
+    <TextView
+        android:id="@+id/TimeArt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2Art"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Time:"
+        app:layout_constraintEnd_toStartOf="@+id/TimeArt"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/SegundosArt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/incorrecto"
+        app:layout_constraintEnd_toEndOf="@+id/textoArt"
+        app:layout_constraintStart_toStartOf="@+id/textoArt"
+        app:layout_constraintTop_toTopOf="@+id/incorrecto" />
+
 </android.support.constraint.ConstraintLayout>
