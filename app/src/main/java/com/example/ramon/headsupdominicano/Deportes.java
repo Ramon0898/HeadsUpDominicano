@@ -1,14 +1,23 @@
 package com.example.ramon.headsupdominicano;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ramon.headsupdominicano.Api.PalabrarApi;
 import com.example.ramon.headsupdominicano.Modelo.palabras;
@@ -24,14 +33,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Deportes extends AppCompatActivity {
 
     int NumeroRespuesta=0;
+    Intent in;
     SensorManager sensorManager;
     Sensor sensor;
     SensorEventListener sensorEventListener;
     TextView correcto, incorrecto;
     CountDownTimer ConteoAtras;
     CountDownTimer ConteoAtras2;
-    TextView conteo;
-    TextView segundos;
+    TextView conteo, segundos, textFinalizado;
+    ImageView imgFinalizado;
+    Dialog epicDialog;
+    Button reintentar, volver;
 
     private TextView tex;
     @Override
@@ -49,12 +61,8 @@ public class Deportes extends AppCompatActivity {
         tex.setEnabled(true);
         tex.setTextColor(Color.TRANSPARENT);
 
-
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
-
-
-
 
 
         ConteoAtras = new CountDownTimer(61000,1000)// Los parametros dice los segundos y cuanto se le va a restar
@@ -66,7 +74,8 @@ public class Deportes extends AppCompatActivity {
             public void onTick(long l)//este metodo se va a correr cuando empieze el conteo
             {
 
-                conteo.setText(l / 1000+ ":00");
+                conteo.setText (l / 1000 + " Seg" );
+
 
             }
 
@@ -77,12 +86,11 @@ public class Deportes extends AppCompatActivity {
                 if(conteo.getText() == "Game Over")
                 {
                     tex.setEnabled(true);
-                    tex.setTextColor(Color.TRANSPARENT);
+                    //ResultadoFinal();
+
                 }
 
-
             }
-
 
         };//con esto empieza el coteo al entrar al activity
 
@@ -90,15 +98,12 @@ public class Deportes extends AppCompatActivity {
         {
 
 
-
             @Override
             public void onTick(long l)//este metodo se va a correr cuando empieze el conteo
             {
 
                 segundos.setText(l / 1000+ "");
-
             }
-
             @Override
             public void onFinish()//este se va a correr cuando se acabe el conteo
             {
@@ -115,26 +120,63 @@ public class Deportes extends AppCompatActivity {
 
                     ConteoAtras.start();
 
-
                 }
 
             }
 
-
         }.start();//con esto empieza el coteo al entrar al activity
 
-
-
-
-
-
         Pass();
+
+        epicDialog = new Dialog(this);
+
+
+
     }
 
+    /**public void ResultadoFinal() {
+        reintentar = findViewById(R.id.btnReintentar);
+        volver = findViewById(R.id.btnvolver);
+        AlertDialog.Builder builder = new AlertDialog.Builder(Deportes.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.resultadofinal, null);
+
+        builder.setView(view);
+
+        //TODO BOTONES POR DEFECTO
+        /**
+         builder.setView(inflater.inflate(R.layout.dialog_personalizado,null))
+         .setPositiveButton("Reintentar", new DialogInterface.OnClickListener() {
+        @Override public void onClick(DialogInterface dialog, int which) {
+        }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        @Override public void onClick(DialogInterface dialog, int which) {
+        Toast.makeText(getApplicationContext(),"Cancel",Toast.LENGTH_SHORT).show();
+        }
+        });
 
 
 
-    public void Pass(){ //METODO PARA PASS AND BYPASS //LO LLAMAS DONDE IMPLEMENTEMOS LAS CONDICIONES DE LAS PALABRAS
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        TextView txt = view.findViewById(R.id.text_dialog);
+        txt.setText("AQUI PONES EL RESULTADO");
+
+        reintentar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }**/
+
+
+
+
+        public void Pass(){ //METODO PARA PASS AND BYPASS //LO LLAMAS DONDE IMPLEMENTEMOS LAS CONDICIONES DE LAS PALABRAS
         sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -188,7 +230,7 @@ public class Deportes extends AppCompatActivity {
 
     public String PreguntasDeporte[]=
             {
-                    "Big Daddy",
+                    "Big Papi",
                     "Pelota",
                     "Jose Reyes",
                     "Guantes",
