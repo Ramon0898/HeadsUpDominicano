@@ -30,24 +30,17 @@
         app:layout_constraintVertical_bias="0.507" />
 
     <TextView
-        android:id="@+id/TimeArt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:id="@+id/ConteoArte"
+        android:layout_width="187dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="52dp"
         android:text="60"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2Art"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Time:"
-        app:layout_constraintEnd_toStartOf="@+id/TimeArt"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/SegundosArt"
         android:layout_width="wrap_content"

@@ -21,6 +21,7 @@ public class Arte extends AppCompatActivity {
     SensorManager sensorManager;
     Sensor sensor;
     TextView l;
+    int aux =0;
     SensorEventListener sensorEventListener;
     CountDownTimer ConteoAtras;
     CountDownTimer ConteoAtras2;
@@ -36,18 +37,19 @@ public class Arte extends AppCompatActivity {
         tex= findViewById(R.id.textoArt);
 
 
-        conteo = findViewById(R.id.TimeArt);
+        conteo = findViewById(R.id.ConteoArte);
         segundos= findViewById(R.id.SegundosArt);
 
         tex.setEnabled(true);
         tex.setTextColor(Color.TRANSPARENT);
 
+        ActualizarPreguntas();
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
 
-        ActualizarPreguntas();
+
 
 
 
@@ -68,24 +70,17 @@ public class Arte extends AppCompatActivity {
             public void onFinish()//este se va a correr cuando se acabe el conteo
             {
                 conteo.setText("Game Over");
-                if(conteo.getText() == "Game Over")
-                {
+                if(conteo.getText() == "Game Over") {
                     tex.setEnabled(true);
                     tex.setTextColor(Color.TRANSPARENT);
                     ShowAlertDialog();
                 }
 
-
             }
-
-
         };//con esto empieza el coteo al entrar al activity
 
         ConteoAtras2 = new CountDownTimer(6000,1000)// Los parametros dice los segundos y cuanto se le va a restar
         {
-
-
-
             @Override
             public void onTick(long l)//este metodo se va a correr cuando empieze el conteo
             {
@@ -109,15 +104,9 @@ public class Arte extends AppCompatActivity {
                     tex.setTextColor(Color.BLACK);
 
                     ConteoAtras.start();
-
-
                 }
-
             }
-
-
         }.start();//con esto empieza el coteo al entrar al activity
-
 
         Pass();
     }
@@ -142,18 +131,15 @@ public class Arte extends AppCompatActivity {
                     orientations[i] = (float) (Math.toDegrees(orientations[i]));
                 }
 
-                if(orientations[1] >50 )
+                if(orientations[1] >60   )
                 {
                     getWindow().getDecorView().setBackgroundColor(Color.RED);
 
                     float d = orientations[1];
                     int i = (int) d;
-                    //String dd = String.valueOf(i);
 
-
-                    if(i>=50 && i<=70 )
+                    if(i>=50 && aux==0)
                     {
-
                         ActualizarPreguntas();
                     }
 
@@ -168,8 +154,9 @@ public class Arte extends AppCompatActivity {
 
                     if(i<= -30)
                     {
-                        Puntaje++;
+
                         ActualizarPreguntas();
+                        Puntaje++;
                     }
 
                 } else if(orientations[2] < 10) {
@@ -194,23 +181,17 @@ public class Arte extends AppCompatActivity {
 
     public String PreguntasDeporte[]=
             {
-                    "Big Daddy",
-                    "Pelota",
-                    "Jose Reyes",
-                    "Guantes",
-                    "Tennis Deportivos",
-                    "Cancha de Basquetball",
-                    "Estadio de Futball",
-                    "Guantes de Boxeo",
-                    "Pesas",
-                    "Patines"
+                    "Romeo Santos", "Kiko el Crazy", "Fefita la grande", "El Alfa", "El Torito", "El Mayimbre", "....440", "Alofoke", "Jochy Santos", "Robertico Salcedo", "Boca De Piano", "Raymond Y Miguel", "Monalisa","Romeo Santos", "Kiko el Crazy", "Fefita la grande", "El Alfa", "El Torito", "El Mayimbre", "....440", "Alofoke", "Jochy Santos", "Robertico Salcedo", "Boca De Piano", "Raymond Y Miguel", "Monalisa","Romeo Santos", "Kiko el Crazy", "Fefita la grande", "El Alfa", "El Torito", "El Mayimbre", "....440", "Alofoke", "Jochy Santos", "Robertico Salcedo", "Boca De Piano", "Raymond Y Miguel", "Monalisa","Romeo Santos", "Kiko el Crazy", "Fefita la grande", "El Alfa", "El Torito", "El Mayimbre", "....440", "Alofoke", "Jochy Santos", "Robertico Salcedo", "Boca De Piano", "Raymond Y Miguel", "Monalisa"
+
 
             };
 
     public String obtenerPreguntas(int a)
     {
+
         String Preguntas = PreguntasDeporte[a];
         return Preguntas;
+
 
     }
 

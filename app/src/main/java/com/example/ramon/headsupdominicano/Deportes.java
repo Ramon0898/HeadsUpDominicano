@@ -1,6 +1,8 @@
 package com.example.ramon.headsupdominicano;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -8,8 +10,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,8 +34,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Deportes extends AppCompatActivity {
 
+    MediaPlayer player;
     int NumeroRespuesta=0;
     Intent in;
+    int aux =0;
+    int Puntaje=0;
     SensorManager sensorManager;
     Sensor sensor;
     SensorEventListener sensorEventListener;
@@ -64,6 +69,8 @@ public class Deportes extends AppCompatActivity {
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
+        ActualizarPreguntas();
+
 
         ConteoAtras = new CountDownTimer(61000,1000)// Los parametros dice los segundos y cuanto se le va a restar
         {
@@ -86,7 +93,9 @@ public class Deportes extends AppCompatActivity {
                 if(conteo.getText() == "Game Over")
                 {
                     tex.setEnabled(true);
-                    //ResultadoFinal();
+                    tex.setTextColor(Color.TRANSPARENT);
+                    ShowAlertDialog();
+
 
                 }
 
@@ -176,7 +185,7 @@ public class Deportes extends AppCompatActivity {
 
 
 
-        public void Pass(){ //METODO PARA PASS AND BYPASS //LO LLAMAS DONDE IMPLEMENTEMOS LAS CONDICIONES DE LAS PALABRAS
+    public void Pass(){ //METODO PARA PASS AND BYPASS //LO LLAMAS DONDE IMPLEMENTEMOS LAS CONDICIONES DE LAS PALABRAS
         sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -197,15 +206,35 @@ public class Deportes extends AppCompatActivity {
                     orientations[i] = (float) (Math.toDegrees(orientations[i]));
                 }
 
-                if(orientations[1] >50 ) {
+                if(orientations[1] >50 )
+                {
                     getWindow().getDecorView().setBackgroundColor(Color.RED);
-                    if(orientations[1] ==55)
+
+                    float d = orientations[1];
+                    int i = (int) d;
+                    String dd = String.valueOf(i);
+
+
+                    if(i>=50 && aux ==0 )
                     {
                         ActualizarPreguntas();
                     }
-                } else if(orientations[1] < -30) {
-                    ActualizarPreguntas();
+
+                } else if(orientations[1] < -30){
+
                     getWindow().getDecorView().setBackgroundColor(Color.GREEN);
+
+                    float d = orientations[1];
+                    int i = (int) d;
+                    // String dd = String.valueOf(i);
+
+
+                    if(i<= -30)
+                    {
+
+                        ActualizarPreguntas();
+                        Puntaje++;
+                    }
 
                 } else if(orientations[2] < 10) {
                     getWindow().getDecorView().setBackgroundColor(Color.WHITE);
@@ -227,7 +256,6 @@ public class Deportes extends AppCompatActivity {
 
     }
 
-
     public String PreguntasDeporte[]=
             {
                     "Big Papi",
@@ -239,7 +267,116 @@ public class Deportes extends AppCompatActivity {
                     "Estadio de Futball",
                     "Guantes de Boxeo",
                     "Pesas",
+                    "Patines",
+                    "Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines",
+                    "Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines",
+                    "Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines",
+                    "Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines",
+                    "Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines","Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines",
+                    "Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines",
+                    "Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines","Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines",
+                    "Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
+                    "Patines",
+                    "Big Papi",
+                    "Pelota",
+                    "Jose Reyes",
+                    "Guantes",
+                    "Tennis Deportivos",
+                    "Cancha de Basquetball",
+                    "Estadio de Futball",
+                    "Guantes de Boxeo",
+                    "Pesas",
                     "Patines"
+
 
             };
 
@@ -257,6 +394,30 @@ public class Deportes extends AppCompatActivity {
 
 
 
+    }
+
+
+    public void ShowAlertDialog()
+    {
+
+        android.app.AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Quieres Jugar la categoria de Arte Otra vez? ");
+        alert.setMessage("Puntos Obtenidos: " + Puntaje);
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(Deportes.this, Deportes.class);
+                startActivity(i);
+            }
+        });
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(Deportes.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+        alert.create().show();
     }
 
 }

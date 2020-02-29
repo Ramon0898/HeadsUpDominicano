@@ -18,6 +18,7 @@ public class Geografia extends AppCompatActivity {
     int NumeroRespuesta=0;
     SensorManager sensorManager;
     Sensor sensor;
+    int aux =0;
     int Puntaje=0;
     SensorEventListener sensorEventListener;
     CountDownTimer ConteoAtras;
@@ -34,11 +35,13 @@ public class Geografia extends AppCompatActivity {
         tex= findViewById(R.id.textoGeo);
 
 
-        conteo = findViewById(R.id.TimeGeo);
+        conteo = findViewById(R.id.ConteoGeografia);
         segundos= findViewById(R.id.SegundosGeo);
 
         tex.setEnabled(true);
         tex.setTextColor(Color.TRANSPARENT);
+
+        ActualizarPreguntas();
 
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -65,6 +68,7 @@ public class Geografia extends AppCompatActivity {
                 {
                     tex.setEnabled(true);
                     tex.setTextColor(Color.TRANSPARENT);
+                    ShowAlertDialog();
                 }
 
 
@@ -149,7 +153,7 @@ public class Geografia extends AppCompatActivity {
                     //String dd = String.valueOf(i);
 
 
-                    if(i>=50 && i<=70 )
+                    if(i>=50 )
                     {
                         ActualizarPreguntas();
                     }
@@ -163,7 +167,7 @@ public class Geografia extends AppCompatActivity {
                     //String dd = String.valueOf(i);
 
 
-                    if(i<= -30)
+                    if(i<= -30 && aux==0)
                     {
                         Puntaje++;
                         ActualizarPreguntas();
@@ -192,16 +196,9 @@ public class Geografia extends AppCompatActivity {
 
     public String PreguntasDeporte[]=
             {
-                    "Big Daddy",
-                    "Pelota",
-                    "Jose Reyes",
-                    "Guantes",
-                    "Tennis Deportivos",
-                    "Cancha de Basquetball",
-                    "Estadio de Futball",
-                    "Guantes de Boxeo",
-                    "Pesas",
-                    "Patines"
+                    "Bosque", "Ciclon", "Desierto", "Flora", "Fauna", "Cielo", "Haiti", "Jupiter", "Nieve", "Mar", "Amazonias", "Boca Chica", "Pico Duarte", "Montaña Redonda","Bosque", "Ciclon", "Desierto", "Flora", "Fauna", "Cielo", "Haiti", "Jupiter", "Nieve", "Mar", "Amazonias", "Boca Chica", "Pico Duarte", "Montaña Redonda","Bosque", "Ciclon", "Desierto", "Flora", "Fauna", "Cielo", "Haiti", "Jupiter", "Nieve", "Mar", "Amazonias", "Boca Chica", "Pico Duarte", "Montaña Redonda","Bosque", "Ciclon", "Desierto", "Flora", "Fauna", "Cielo", "Haiti", "Jupiter", "Nieve", "Mar", "Amazonias", "Boca Chica", "Pico Duarte", "Montaña Redonda","Bosque", "Ciclon", "Desierto", "Flora", "Fauna", "Cielo", "Haiti", "Jupiter", "Nieve", "Mar", "Amazonias", "Boca Chica", "Pico Duarte", "Montaña Redonda","Bosque", "Ciclon", "Desierto", "Flora", "Fauna", "Cielo", "Haiti", "Jupiter", "Nieve", "Mar", "Amazonias", "Boca Chica", "Pico Duarte", "Montaña Redonda"
+
+
 
             };
 

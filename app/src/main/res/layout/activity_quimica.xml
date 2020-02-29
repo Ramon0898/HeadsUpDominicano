@@ -27,22 +27,16 @@
         app:layout_constraintTop_toTopOf="@+id/incorrecto" />
 
     <TextView
-        android:id="@+id/TimeQui"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:text="59"
+        android:id="@+id/ConteoQuimica"
+        android:layout_width="187dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="52dp"
+        android:text="60"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2Qui"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Time :"
-        app:layout_constraintEnd_toStartOf="@+id/TimeHQui"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -52,8 +46,8 @@
         android:text="5"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="@+id/incorrecto"
-        app:layout_constraintEnd_toEndOf="@+id/incorrecto"
-        app:layout_constraintStart_toStartOf="@+id/incorrecto"
+        app:layout_constraintEnd_toEndOf="@+id/textoQui"
+        app:layout_constraintStart_toStartOf="@+id/textoQui"
         app:layout_constraintTop_toTopOf="@+id/incorrecto" />
 
 

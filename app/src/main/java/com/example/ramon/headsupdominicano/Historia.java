@@ -18,6 +18,7 @@ public class Historia extends AppCompatActivity {
     SensorManager sensorManager;
     Sensor sensor;
     int Puntaje=0;
+    int aux=0;
     TextView l;
     SensorEventListener sensorEventListener;
     CountDownTimer ConteoAtras;
@@ -36,8 +37,9 @@ public class Historia extends AppCompatActivity {
         tex= findViewById(R.id.textoHis);
 
 
-        conteo = findViewById(R.id.TimeHis);
+        conteo = findViewById(R.id.ConteoHistoria);
         segundos= findViewById(R.id.SegundosHis);
+
 
         tex.setEnabled(true);
         tex.setTextColor(Color.TRANSPARENT);
@@ -72,6 +74,7 @@ public class Historia extends AppCompatActivity {
                 {
                     tex.setEnabled(true);
                     tex.setTextColor(Color.TRANSPARENT);
+                    ShowAlertDialog();
                 }
 
 
@@ -142,7 +145,7 @@ public class Historia extends AppCompatActivity {
                     orientations[i] = (float) (Math.toDegrees(orientations[i]));
                 }
 
-                if(orientations[1] >50 )
+                if(orientations[1] >50 && aux==0)
                 {
                     getWindow().getDecorView().setBackgroundColor(Color.RED);
 
@@ -167,8 +170,9 @@ public class Historia extends AppCompatActivity {
 
                     if(i<= -30)
                     {
-                        Puntaje++;
+
                         ActualizarPreguntas();
+                        Puntaje++;
                     }
 
                 } else if(orientations[2] < 10) {
@@ -193,16 +197,9 @@ public class Historia extends AppCompatActivity {
 
     public String PreguntasDeporte[]=
             {
-                    "Big Daddy",
-                    "Pelota",
-                    "Jose Reyes",
-                    "Guantes",
-                    "Tennis Deportivos",
-                    "Cancha de Basquetball",
-                    "Estadio de Futball",
-                    "Guantes de Boxeo",
-                    "Pesas",
-                    "Patines"
+                    "Trabucazo", "Rafael Leonidas Trujillo", "Juan Pablo Duarte", "Azul, rojo y blanco", "Santo Domingo", "Paris", "AFrica", "Momias", "Militares", "Antillas Mayores", "Estatua de la Libertad", "Matias Ramon Mella", "Vinkingos", "Carnivoros", "Piratas","Trabucazo", "Rafael Leonidas Trujillo", "Juan Pablo Duarte", "Azul, rojo y blanco", "Santo Domingo", "Paris", "AFrica", "Momias", "Militares", "Antillas Mayores", "Estatua de la Libertad", "Matias Ramon Mella", "Vinkingos", "Carnivoros", "Piratas", "Trabucazo", "Rafael Leonidas Trujillo", "Juan Pablo Duarte", "Azul, rojo y blanco", "Santo Domingo", "Paris", "AFrica", "Momias", "Militares", "Antillas Mayores", "Estatua de la Libertad", "Matias Ramon Mella", "Vinkingos", "Carnivoros", "Piratas","Trabucazo", "Rafael Leonidas Trujillo", "Juan Pablo Duarte", "Azul, rojo y blanco", "Santo Domingo", "Paris", "AFrica", "Momias", "Militares", "Antillas Mayores", "Estatua de la Libertad", "Matias Ramon Mella", "Vinkingos", "Carnivoros", "Piratas", "Trabucazo", "Rafael Leonidas Trujillo", "Juan Pablo Duarte", "Azul, rojo y blanco", "Santo Domingo", "Paris", "AFrica", "Momias", "Militares", "Antillas Mayores", "Estatua de la Libertad", "Matias Ramon Mella", "Vinkingos", "Carnivoros", "Piratas","Trabucazo", "Rafael Leonidas Trujillo", "Juan Pablo Duarte", "Azul, rojo y blanco", "Santo Domingo", "Paris", "AFrica", "Momias", "Militares", "Antillas Mayores", "Estatua de la Libertad", "Matias Ramon Mella", "Vinkingos", "Carnivoros", "Piratas"
+
+
 
             };
 

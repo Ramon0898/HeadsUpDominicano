@@ -18,6 +18,7 @@ public class Entretenimiento extends AppCompatActivity {
     int NumeroRespuesta=0;
     SensorManager sensorManager;
     Sensor sensor;
+    int aux = 0;
     int Puntaje= 0;
     SensorEventListener sensorEventListener;
     CountDownTimer ConteoAtras;
@@ -33,11 +34,12 @@ public class Entretenimiento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entretenimiento);
 
-        conteo = findViewById(R.id.TimeEntre);
+        conteo = findViewById(R.id.ConteoEntretenimiento);
         segundos= findViewById(R.id.SegundosEntre);
         tex= findViewById(R.id.textoEntre);
         tex.setEnabled(true);
         tex.setTextColor(Color.TRANSPARENT);
+        ActualizarPreguntas();
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
@@ -62,6 +64,7 @@ public class Entretenimiento extends AppCompatActivity {
                 {
                     tex.setEnabled(true);
                     tex.setTextColor(Color.TRANSPARENT);
+                    ShowAlertDialog();
                 }
 
 
@@ -140,7 +143,7 @@ public class Entretenimiento extends AppCompatActivity {
                     String dd = String.valueOf(i);
 
 
-                    if(i>=50 && i<=70 )
+                    if(i>=50)
                     {
                         ActualizarPreguntas();
                     }
@@ -154,10 +157,11 @@ public class Entretenimiento extends AppCompatActivity {
                    // String dd = String.valueOf(i);
 
 
-                    if(i<= -30)
+                    if(i<= -30 )
                     {
-                        Puntaje++;
+
                         ActualizarPreguntas();
+                        Puntaje++;
                     }
 
                 } else if(orientations[2] < 10) {
@@ -182,16 +186,9 @@ public class Entretenimiento extends AppCompatActivity {
 
     public String PreguntasDeporte[]=
             {
-                    "Big Daddy",
-                    "Pelota",
-                    "Jose Reyes",
-                    "Guantes",
-                    "Tennis Deportivos",
-                    "Cancha de Basquetball",
-                    "Estadio de Futball",
-                    "Guantes de Boxeo",
-                    "Pesas",
-                    "Patines"
+                    "Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas","Disney", "Comida", "Musica", "Cine", "Opera", "Premiacion", "Pintura", "Torre Eiffel", "Esquiar", "Alpinismo", "Teatro", "Paseos", "Discotecas", "Anime", "Piscina","Risas"
+
+
 
             };
 

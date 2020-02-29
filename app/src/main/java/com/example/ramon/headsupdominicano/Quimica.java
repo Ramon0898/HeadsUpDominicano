@@ -35,8 +35,9 @@ public class Quimica extends AppCompatActivity {
         tex= findViewById(R.id.textoQui);
 
 
-        conteo = findViewById(R.id.TimeQui);
+        conteo = findViewById(R.id.ConteoQuimica);
         segundos= findViewById(R.id.SegundosQui);
+
 
         tex.setEnabled(true);
         tex.setTextColor(Color.TRANSPARENT);
@@ -71,6 +72,7 @@ public class Quimica extends AppCompatActivity {
                 {
                     tex.setEnabled(true);
                     tex.setTextColor(Color.TRANSPARENT);
+                    ShowAlertDialog();
                 }
 
 
@@ -191,17 +193,8 @@ public class Quimica extends AppCompatActivity {
 
     public String PreguntasDeporte[]=
             {
-                    "Big Daddy",
-                    "Pelota",
-                    "Jose Reyes",
-                    "Guantes",
-                    "Tennis Deportivos",
-                    "Cancha de Basquetball",
-                    "Estadio de Futball",
-                    "Guantes de Boxeo",
-                    "Pesas",
-                    "Patines"
-
+                    "H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido","H2o", "Acido", "Drogas", "Enfermedades", "Termometro", "Fuego", "Calor", "Frio", "Gaseoso", "Solido"
+                    
             };
 
     public String obtenerPreguntas(int a)
